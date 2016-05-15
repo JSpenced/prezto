@@ -38,14 +38,13 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt'
-
-#
-# Autosuggestions
-#
-
-# Set the query found color.
-# zstyle ':prezto:module:autosuggestions:color' found ''
+  'osx' \
+  'fasd' \
+  'git' \
+  'tmux' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt' \
 
 #
 # Completions
@@ -171,7 +170,6 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #   'main' \
 #   'brackets' \
 #   'pattern' \
-#   'line' \
 #   'cursor' \
 #   'root'
 #
@@ -209,13 +207,13 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Set the default session name:
-# zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
+# zstyle ':prezto:module:tmux:session' name 'DEFAULT'
 
 #
 # Utility
@@ -224,4 +222,4 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Enabled safe options. This aliases cp, ln, mv and rm so that they prompt
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
-# zstyle ':prezto:module:utility' safe-ops 'yes'
+# zstyle ':prezto:module:utility' safe-ops 'no'

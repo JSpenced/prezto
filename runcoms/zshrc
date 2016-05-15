@@ -10,4 +10,74 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Customize to your
+unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
+                                      # command that may look like an existing one.
+
+expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
+  echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
+
+#function f() { find . -iname "*$1*" ${@:2} }
+#function r() { grep "$1" ${@:2} -R . }
+
+setopt extended_glob
+setopt ksh_glob
+
+# Even better: use the silver searcher (brew install the_silver_searcher)
+alias fs="ag -g"
+alias rs=ag
+alias su="subl"
+alias sn="subl -n"
+alias snw="subl -n -w"
+alias sb="subl -n -b"
+alias snb="subl -n -b"
+alias opf="open -a Finder"
+alias ema="nohup emacs -q -l /Users/bigtyme/Dropbox/SyncedPrograms/emacs/jmax/init.el &"
+# Default aliases for fasd already set but here for reference
+# alias fa='fasd -a'        # any
+# alias fs='fasd -si'       # show / search / select
+alias fd='fasd -d'        # directory
+alias ff='fasd -f'        # file
+alias fsd='fasd -sid'     # interactive directory selection
+alias fsf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+# unalias rm
+alias rmi='rm -i'
+alias rmd='rm -r'
+alias rmir='rm -i -r'
+# Used to unalias to use the ghostscript command /usr/local/bin/gs
+# unalias gs
+# alias gst='git stash'
+alias opar='open -a "Adobe Acrobat Reader DC"'
+
+# Try to setup to expand aliases
+expand-aliases() {
+  unset 'functions[_expand-aliases]'
+  functions[_expand-aliases]=$BUFFER
+  (($+functions[_expand-aliases])) &&
+    BUFFER=${functions[_expand-aliases]#$'\t'} &&
+    CURSOR=$#BUFFER
+}
+zle -N expand-aliases
+bindkey '\e^E' expand-aliases
+
+autoload -U select-word-style
+select-word-style bash
+
+export SUBLIME=subl
+export EDITOR=$SUBLIME' -n -w'
+export VISUAL=$EDITOR
+
+# export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/SyncedPrograms/SystemScripts
+export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:$PATH:/Users/bigtyme/Dropbox/SyncedPrograms/SystemScripts
+export PYTHONPATH=$PYTHONPATH:/Users/bigtyme/Dropbox/Research/Code/Model
+# export PATH=/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/SyncedPrograms/SystemScripts
+# export PYTHONPATH=/usr/local/lib/python2.7/site-packages:/usr/local/lib/python3.5/site-packages:$PYTHONPATH
+# To get autojump working (replaced by fasd (brew install and added to plugins))
+# [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
