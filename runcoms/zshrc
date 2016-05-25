@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your
-unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
+# unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
                                       # command that may look like an existing one.
 
 expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
@@ -61,9 +61,8 @@ alias jupqe='jupyter qtconsole --style monokai  --existing'
 alias ipq='ipython qtconsole --style monokai'
 alias ipqt='ipython qtconsole --style monokai'
 alias ipqe='ipython qtconsole --style monokai  --existing'
-alias ls='ls -G -h'
-alias lsa='ls -all'
-alias lsh='ls -a'
+# alias ls='ls -G -h'
+alias lh='ls -h -a'
 # alias jupqte='jupyter qtconsole --style monokai --existing'
 
 # Try to setup to expand aliases
