@@ -45,6 +45,8 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt' \
+  'forward-word-match' \
+  
 
 
 #
