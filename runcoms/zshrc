@@ -55,6 +55,16 @@ alias rmir='rm -i -r'
 # unalias gs
 # alias gst='git stash'
 alias opar='open -a "Adobe Acrobat Reader DC"'
+alias jupq='jupyter qtconsole --style monokai'
+alias jupqt='jupyter qtconsole --style monokai'
+alias jupqe='jupyter qtconsole --style monokai  --existing'
+alias ipq='ipython qtconsole --style monokai'
+alias ipqt='ipython qtconsole --style monokai'
+alias ipqe='ipython qtconsole --style monokai  --existing'
+alias ls='ls -G -h'
+alias lsa='ls -all'
+alias lsh='ls -a'
+# alias jupqte='jupyter qtconsole --style monokai --existing'
 
 # Try to setup to expand aliases
 expand-aliases() {
