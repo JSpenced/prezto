@@ -82,8 +82,8 @@ expand-aliases() {
 zle -N expand-aliases
 bindkey '\e^E' expand-aliases
 
-autoload -U select-word-style
-select-word-style bash
+# Treat these characters as part of a word.
+WORDCHARS='*?[]~&;!#$%^(){}<>'
 
 export SUBLIME=subl
 export EDITOR=$SUBLIME' -w'
