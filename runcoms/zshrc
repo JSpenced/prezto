@@ -43,7 +43,7 @@ alias ema="nohup emacs -q -l /Users/bigtyme/Dropbox/SyncedPrograms/emacs/jmax/in
 # alias fs='fasd -si'       # show / search / select
 alias fd='fasd -d'        # directory
 alias ff='fasd -f'        # file
-alias fsd='fasd -sid'     # interactive directory selection
+alias fsd='fasd -sid'     # Interactive directory selection
 alias fsf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
@@ -66,6 +66,17 @@ alias unmo='diskutil unmountDisk /dev/disk2s1'
 alias unmount='diskutil unmountDisk'
 alias unmountd='diskutil unmountDisk /dev/disk2s1'
 alias kql='killall qlmanage'
+alias netoff='networksetup -setairportpower en0 off'
+alias neton='networksetup -setairportpower en0 on'
+alias netoffon='networksetup -setairportpower en0 off; networksetup -setairportpower en0 on'
+alias noo='networksetup -setairportpower en0 off; networksetup -setairportpower en0 on'
+alias adp='adb push'
+
+# GIT aliases
+alias gcof='git checkout -f'
+alias gche='git cherry-pick'
+alias gpristine='git reset --hard && git clean -df'
+alias gdt='git difftool'
 
 # alias ls='ls -G -h'
 alias lh='ls -h -a'
@@ -89,10 +100,10 @@ export SUBLIME=subl
 export EDITOR=$SUBLIME' -w'
 export VISUAL=$EDITOR
 
-# export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/SyncedPrograms/SystemScripts
-export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:$PATH:/Users/bigtyme/Dropbox/SyncedPrograms/SystemScripts
+# export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
+export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
 export PYTHONPATH=$PYTHONPATH:/Users/bigtyme/Dropbox/Research/Code/Model
-# export PATH=/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/SyncedPrograms/SystemScripts
+# export PATH=/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
 # export PYTHONPATH=/usr/local/lib/python2.7/site-packages:/usr/local/lib/python3.5/site-packages:$PYTHONPATH
 # To get autojump working (replaced by fasd (brew install and added to plugins))
 # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
