@@ -72,6 +72,9 @@ alias netoffon='networksetup -setairportpower en0 off; networksetup -setairportp
 alias noo='networksetup -setairportpower en0 off; networksetup -setairportpower en0 on'
 alias adp='adb push'
 
+# Brew aliases
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+
 # GIT aliases
 alias gcof='git checkout -f'
 alias gche='git cherry-pick'
@@ -99,7 +102,8 @@ WORDCHARS='*?[]~&;!#$%^(){}<>'
 export SUBLIME=subl
 export EDITOR=$SUBLIME' -w'
 export VISUAL=$EDITOR
-
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
 # export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
 export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
 export PYTHONPATH=$PYTHONPATH:/Users/bigtyme/Dropbox/Research/Code/Model
