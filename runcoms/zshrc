@@ -28,6 +28,9 @@ bindkey "^I" expand-or-complete-with-dots
 setopt extended_glob
 setopt ksh_glob
 
+# hub has all the features of git and more to view issues and submit PRs
+alias git="hub"
+
 # Even better: use the silver searcher (brew install the_silver_searcher)
 alias fs="ag -g"
 alias rs=ag
@@ -36,8 +39,6 @@ alias sn="subl -n"
 alias snw="subl -n -w"
 alias sb="subl -n -b"
 alias snb="subl -n -b"
-alias opf="open -a Finder"
-alias ema="nohup emacs -q -l /Users/bigtyme/Dropbox/SyncedPrograms/emacs/jmax/init.el &"
 # Default aliases for fasd already set but here for reference
 # alias fa='fasd -a'        # any
 # alias fs='fasd -si'       # show / search / select
@@ -51,6 +52,9 @@ alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 # unalias rm
 alias rmi='rm -i'
+alias rmr='rm -r'
+alias rmrf='rm -r -f'
+alias rmf='rm -r -f'
 alias rmd='rm -r'
 alias rmir='rm -i -r'
 # Used to unalias to use the ghostscript command /usr/local/bin/gs
@@ -94,6 +98,12 @@ alias gau='git add -u'
 alias lh='ls -h -a'
 # alias jupqte='jupyter qtconsole --style monokai --existing'
 
+# RUN Programs
+alias em="open -a Emacs"
+alias emc="open -a Emacs"
+alias opf="open -a Finder"
+alias emac="nohup emacs -q -l /Users/bigtyme/Programs/scimax/init.el &"
+alias emacsjmax="nohup emacs -q -l /Users/bigtyme/Programs/scimax/init.el &"
 # Try to setup to expand aliases
 expand-aliases() {
   unset 'functions[_expand-aliases]'
@@ -128,6 +138,3 @@ if [ -f '/Users/bigtyme/Programs/google-cloud-sdk/path.zsh.inc' ]; then source '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bigtyme/Programs/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/bigtyme/Programs/google-cloud-sdk/completion.zsh.inc'; fi
-
-# This is maybe needed for R to work properly but think for windows
-# Sys.setlocale(category="LC_ALL", locale = "en_US.UTF-8")
