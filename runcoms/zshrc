@@ -86,6 +86,11 @@ alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
 # Brew aliases
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
+# Tmux aliases
+alias ta='tmux a'
+alias tma='tmux a'
+alias tmd='tmux detach'
+
 # GIT aliases
 alias gcof='git checkout -f'
 alias gche='git cherry-pick'
