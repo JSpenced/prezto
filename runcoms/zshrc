@@ -82,6 +82,7 @@ alias sl='pmset sleepnow'
 # alias sle='pmset sleepnow'
 alias pms='pmset sleepnow'
 alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias preztoupdate='fasd_cd -d prezto && git fetch upstream && git rebase -Xours upstream/master && git checkout --ours zshconfig.sh && git add zshconfig.sh && git rebase --continue'
 
 # Brew aliases
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
