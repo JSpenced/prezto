@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 #
 # Sets Prezto options.
 #
@@ -46,8 +47,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt' \
 
-
-
 #
 # Completions
 #
@@ -74,7 +73,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
 #
 # GNU Utility
@@ -117,6 +116,8 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
+# kylewest good one does folder - git branch (not show path)
+# cloud is also good theme just folder [branch] (not show path)
 zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Set the working directory prompt display length.
