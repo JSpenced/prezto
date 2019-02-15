@@ -36,6 +36,8 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'history' \
   'directory' \
+  'homebrew' \
+  # 'ssh' \
   'spectrum' \
   'utility' \
   'completion' \
