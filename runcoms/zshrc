@@ -63,6 +63,9 @@ alias rmir='rm -i -r'
 # alias gst='git stash'
 
 alias opar='open -a "Adobe Acrobat Reader DC"'
+alias jupn='jupyter notebook'
+alias jn='jupyter notebook'
+alias jnio='jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000'
 alias jupq='jupyter qtconsole --style monokai'
 alias jupqt='jupyter qtconsole --style monokai'
 alias jupqe='jupyter qtconsole --style monokai  --existing'
@@ -103,9 +106,27 @@ alias preztoupdate='fasd_cd -d prezto && git fetch upstream && git rebase -Xours
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
 # Tmux aliases
+alias tj='j Down && conda deactivate && tmux'
+alias tmj='j Down && conda deactivate && tmux'
 alias ta='tmux a'
 alias tma='tmux a'
 alias tmd='tmux detach'
+
+# conda aliases
+alias cif='conda install -c conda-forge'
+alias cic='conda install -c conda-forge'
+alias cod='conda deactivate'
+alias ca='conda activate'
+alias coa='conda activate'
+alias coi='conda install'
+alias coc='conda create -n'
+alias coif='conda install -c conda-forge'
+alias cou='conda upgrade'
+alias cls='conda info --envs'
+alias caai='conda activate tf-ai'
+alias coaai='conda activate tf-ai'
+alias ci='conda install'
+
 
 # GIT aliases
 alias gcof='git checkout -f'
