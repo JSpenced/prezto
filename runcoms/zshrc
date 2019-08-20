@@ -144,6 +144,7 @@ alias lh='ls -h -a'
 
 # RUN Programs
 alias em="open -a Emacs"
+alias emr="/Users/bigtyme/Dropbox/Programs/emacs/runEmacs"
 alias emc="open -a Emacs"
 alias opf="open -a Finder"
 alias emac="nohup emacs -q --no-desktop -l /Users/bigtyme/Programs/scimax/init.el </dev/null >/dev/null 2>&1 &"
@@ -172,8 +173,9 @@ WORDCHARS='*?[]~&;!#$%^(){}<>'
 export SUBLIME=subl
 export EDITOR=$SUBLIME' -w'
 export VISUAL=$EDITOR
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+# . "/usr/local/opt/nvm/nvm.sh"
+
 # export PATH=/Users/bigtyme/anaconda/bin:/Users/bigtyme/bin:/usr/local/bin:/usr/local/share/python:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
 export PATH=/Users/bigtyme/bin:/usr/local/bin:$PATH:/Users/bigtyme/Dropbox/Programs/system-scripts
 # export PYTHONPATH=$PYTHONPATH:/Users/bigtyme/Google-dr/Research/Model
