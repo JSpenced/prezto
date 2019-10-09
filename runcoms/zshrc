@@ -13,7 +13,7 @@ fi
 
 # Customize to your
 # unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
-                                      # command that may look like an existing one.
+				      # command that may look like an existing one.
 
 expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
   echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
@@ -28,6 +28,14 @@ bindkey "^I" expand-or-complete-with-dots
 
 setopt extended_glob
 setopt ksh_glob
+
+# system commands
+alias duh="du -d 1"
+alias du1="du -d 1"
+alias due="du -L -d 1 -h 2>/dev/null"
+alias duea="du -L -h 2>/dev/null"
+alias dusa="du -L -h 2>/dev/null | gsort -h"
+alias dus="du -L -d 1 -h 2>/dev/null | gsort -h"
 
 # hub has all the features of git and more to view issues and submit PRs
 alias git="hub"
@@ -62,7 +70,19 @@ alias rmir='rm -i -r'
 # unalias gs
 # alias gst='git stash'
 
-alias opar='open -a "Adobe Acrobat Reader DC"'
+# Jupyter notebook alias and function
+alias nbstripjq="jq --indent 1 \
+    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+    | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+    | .cells[].metadata = {} \
+    '"
+function nbstrip_all_cwd {
+    for nbfile in *.ipynb; do
+	echo "$( nbstripjq $nbfile )" > $nbfile
+    done
+    unset nbfile
+}
 alias jupn='jupyter notebook'
 alias jn='jupyter notebook'
 alias jnio='jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000'
@@ -72,6 +92,9 @@ alias jupqe='jupyter qtconsole --style monokai  --existing'
 alias ipq='ipython qtconsole --style monokai'
 alias ipqt='ipython qtconsole --style monokai'
 alias ipqe='ipython qtconsole --style monokai  --existing'
+
+# Other aliases
+alias opar='open -a "Adobe Acrobat Reader DC"'
 alias unm='diskutil unmountDisk /dev/disk2s1'
 alias unmo='diskutil unmountDisk /dev/disk2s1'
 alias unmount='diskutil unmountDisk'
@@ -91,6 +114,12 @@ alias tdpf='export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH
 alias tdf='todo.sh ice_recur -o -f'
 alias tdice='todo.sh ice_recur'
 alias sl='pmset sleepnow'
+alias histr='fc -R'
+alias histread='fc -R'
+alias fcr='fc -R'
+alias fcw='fc -W'
+alias histw='fc -W'
+alias histwrite='fc -W'
 # alias sle='pmset sleepnow'
 alias pms='pmset sleepnow'
 alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -103,7 +132,7 @@ alias preztoupdate='fasd_cd -d prezto && git fetch upstream && git rebase -Xours
 # }
 
 # Brew aliases
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+alias brewski='conda deactivate; brew update && brew upgrade && brew cleanup; brew doctor'
 
 # Tmux aliases
 alias tj='j Down && conda deactivate && tmux'
@@ -126,7 +155,6 @@ alias cls='conda info --envs'
 alias caai='conda activate tf-ai'
 alias coaai='conda activate tf-ai'
 alias ci='conda install'
-
 
 # GIT aliases
 alias gcof='git checkout -f'
