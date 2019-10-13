@@ -42,7 +42,8 @@ alias git="hub"
 
 # Even better: use the silver searcher (brew install the_silver_searcher)
 alias fs="ag -g"
-alias rs=ag
+alias rs="ag"
+alias ripgrep="rg"
 alias su="subl"
 alias sn="subl -n"
 alias snw="subl -n -w"
