@@ -139,7 +139,6 @@ alias brewski='conda deactivate; brew update && brew upgrade && brew cleanup; br
 alias tj='j Down && conda deactivate && tmux'
 alias tmj='j Down && conda deactivate && tmux'
 alias ta='tmux a'
-alias tma='tmux a'
 alias tmd='tmux detach'
 
 # conda aliases
