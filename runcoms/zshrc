@@ -184,6 +184,9 @@ alias emacdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
 alias emacbackprint="find ${HOME}/.emacs_path_backups -mtime +180 -type f -print"
 alias emacbackdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
 
+# Python aliases
+alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expand -t 8 \"\$0\" > \"\$T\" && mv \"\$T\" \"\$0\"' {} \;"
+
 # Try to setup to expand aliases
 expand-aliases() {
   unset 'functions[_expand-aliases]'
