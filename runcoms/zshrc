@@ -214,6 +214,8 @@ source "${HOME}/.zshrc_hidden"
 # To get autojump working (replaced by fasd (brew install and added to plugins))
 # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
+eval "$(rbenv init -)"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
