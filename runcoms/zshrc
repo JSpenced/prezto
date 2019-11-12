@@ -165,6 +165,9 @@ alias gpristine='git reset --hard && git clean -df'
 alias gpris='git reset --hard && git clean -df'
 alias gdt='git difftool --ignore-space-at-eol --ignore-blank-lines -w -b'
 alias gau='git add -u'
+# Re-stage the currently staged files to get the most recent changes of those files
+alias gars='git add $(git diff --name-only --cached)'
+alias gas='git add $(git diff --name-only --cached)'
 
 # alias ls='ls -G -h'
 alias lh='ls -h -a'
