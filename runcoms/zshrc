@@ -187,6 +187,11 @@ alias emacdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
 alias emacbackprint="find ${HOME}/.emacs_path_backups -mtime +180 -type f -print"
 alias emacbackdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
 
+# Mount hard drive (FUSE and unmount VBox)
+alias fuse="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse"
+alias mountntfs="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse && sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/ntfs -ovolname='ntfs'"
+alias mountvbox="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh vbox"
+
 # Python aliases
 alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expand -t 8 \"\$0\" > \"\$T\" && mv \"\$T\" \"\$0\"' {} \;"
 
