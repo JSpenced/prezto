@@ -13,7 +13,7 @@ fi
 
 # Customize to your
 # unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
-				      # command that may look like an existing one.
+					  # command that may look like an existing one.
 
 expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
   echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
@@ -73,16 +73,16 @@ alias rmir='rm -i -r'
 
 # Jupyter notebook alias and function
 alias nbstripjq="jq --indent 1 \
-    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
-    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
-    | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
-    | .cells[].metadata = {} \
-    '"
+	'(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+	| (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+	| .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+	| .cells[].metadata = {} \
+	'"
 function nbstrip_all_cwd {
-    for nbfile in *.ipynb; do
+	for nbfile in *.ipynb; do
 	echo "$( nbstripjq $nbfile )" > $nbfile
-    done
-    unset nbfile
+	done
+	unset nbfile
 }
 alias jupn='jupyter notebook'
 alias jn='jupyter notebook'
@@ -131,6 +131,19 @@ alias preztoupdate='fasd_cd -d prezto && git fetch upstream && git rebase -Xours
 #     export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH
 #     todo.sh ice_recur -o -f
 # }
+
+# File Type stats aliases
+alias filetypestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
+alias filestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
+alias typestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
+
+# Copy video files aliases
+alias cpvidfiles='mkdir -p ${HOME}/Downloads/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.wmv \) -exec cp {} ${HOME}/Downloads/Videos \;'
+
+# Trash aliases
+alias trafe='trash -ey'
+alias trae='trash -e'
+alias tra='trash'
 
 # Brew aliases
 alias brewski='conda deactivate; brew update && brew upgrade && brew cleanup; brew doctor'
@@ -200,8 +213,8 @@ expand-aliases() {
   unset 'functions[_expand-aliases]'
   functions[_expand-aliases]=$BUFFER
   (($+functions[_expand-aliases])) &&
-    BUFFER=${functions[_expand-aliases]#$'\t'} &&
-    CURSOR=$#BUFFER
+	BUFFER=${functions[_expand-aliases]#$'\t'} &&
+	CURSOR=$#BUFFER
 }
 zle -N expand-aliases
 bindkey '\e^E' expand-aliases
