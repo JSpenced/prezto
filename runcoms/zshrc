@@ -187,10 +187,13 @@ alias lh='ls -h -a'
 # alias jupqte='jupyter qtconsole --style monokai --existing'
 
 # RUN Programs
+alias opf="open -a Finder"
+
+# Emacs related
 alias em="open -a Emacs"
 alias emr="${HOME}/Dropbox/Programs/emacs/runEmacs"
 alias emc="open -a Emacs"
-alias opf="open -a Finder"
+alias emq="emacs -q"
 alias emac="nohup emacs -q --no-desktop -l ${HOME}/Programs/scimax/init.el </dev/null >/dev/null 2>&1 &"
 alias emacf="nohup emacs -q --no-desktop -l ${HOME}/Programs/scimax/init.el"
 alias emacautosavefind="find . -iname '#*#' -type f -print"
@@ -199,6 +202,10 @@ alias emacsjmax="nohup emacs -q -l ${HOME}/Programs/scimax/init.el >/dev/null </
 alias emacdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
 alias emacbackprint="find ${HOME}/.emacs_path_backups -mtime +180 -type f -print"
 alias emacbackdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
+alias emacsrelinkdesk="cp ~/Programs/scimax/user/.emacs.desktop ~/Dropbox/Programs/emacs/user/.emacs.desktop && ln -sf ~/Dropbox/Programs/emacs/user/.emacs.desktop ~/Programs/scimax/user/.emacs.desktop"
+alias emacsrmlock="rm ~/Programs/scimax/user/.emacs.desktop.lock"
+alias emacsrmdesk="rm ~/Programs/scimax/user/.emacs.desktop || rm ~/Dropbox/Programs/emacs/user/.emacs.desktop"
+
 
 # Mount hard drive (FUSE and unmount VBox)
 alias fuse="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse"
