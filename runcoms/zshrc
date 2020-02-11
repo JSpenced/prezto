@@ -72,15 +72,26 @@ alias rmir='rm -i -r'
 # alias gst='git stash'
 
 # Jupyter notebook alias and function
-alias nbstripjq="jq --indent 1 \
+alias nbstripjq_all="jq --indent 1 \
 	'(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
 	| (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
 	| .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
 	| .cells[].metadata = {} \
 	'"
-function nbstrip_all_cwd {
+function nbstrip_cwd {
 	for nbfile in *.ipynb; do
-	echo "$( nbstripjq $nbfile )" > $nbfile
+	echo "$( nbstripjq_all $nbfile )" > $nbfile
+	done
+	unset nbfile
+}
+alias nbstripjq_metaonly="jq --indent 1 \
+	'(.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+	| .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+	| .cells[].metadata = {} \
+	'"
+function nbstrip_cwd_metaonly {
+	for nbfile in *.ipynb; do
+	echo "$( nbstripjq_metaonly $nbfile )" > $nbfile
 	done
 	unset nbfile
 }
