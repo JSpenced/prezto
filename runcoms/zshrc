@@ -149,7 +149,8 @@ alias filestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
 alias typestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
 
 # Copy video files aliases
-alias cpvidfiles='mkdir -p ${HOME}/Downloads/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.wmv \) -exec cp {} ${HOME}/Downloads/Videos \;'
+alias cpvidfiles='mkdir -p ${HOME}/Movies/My_vids/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.webm -o -iname \*.3gp -o -iname \*.ogg -o -iname \*.wmv \) -exec cp {} ${HOME}/Movies/My_vids/Videos \;'
+alias cpvidfilesdown='mkdir -p ${HOME}/Downloads/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.webm -o -iname \*.3gp -o -iname \*.ogg -o -iname \*.wmv \) -exec cp {} ${HOME}/Downloads/Videos \;'
 
 # Trash aliases
 alias trafe='trash -ey'
