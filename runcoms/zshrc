@@ -151,6 +151,9 @@ alias typestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
 # Copy video files aliases
 alias cpvidfiles='mkdir -p ${HOME}/Movies/My_vids/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.webm -o -iname \*.3gp -o -iname \*.ogg -o -iname \*.wmv \) -exec cp {} ${HOME}/Movies/My_vids/Videos \;'
 alias cpvidfilesdown='mkdir -p ${HOME}/Downloads/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.webm -o -iname \*.3gp -o -iname \*.ogg -o -iname \*.wmv \) -exec cp {} ${HOME}/Downloads/Videos \;'
+# Can also youse dot_clean $PATH to merge them
+alias dot_underscore_del='find . -type f -name "._*" -delete'
+alias dot_clean_all='dot_clean -n .'
 
 # Trash aliases
 alias trafe='trash -ey'
