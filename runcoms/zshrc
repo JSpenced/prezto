@@ -160,6 +160,10 @@ alias trafe='trash -ey'
 alias trae='trash -e'
 alias tra='trash'
 
+# Trash aliases
+# Only shows the number of lines and not the filename
+alias wcl='wc -l <'
+
 # Brew aliases
 alias brewski='conda deactivate; brew update && brew upgrade && brew cleanup; brew doctor'
 
