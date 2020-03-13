@@ -160,6 +160,11 @@ alias trafe='trash -ey'
 alias trae='trash -e'
 alias tra='trash'
 
+# jekyll aliases
+alias jekylls='bundle exec jekyll serve'
+alias jekyllproduction='JEKYLL_ENV=production bundle exec jekyll serve'
+
+
 # Trash aliases
 # Only shows the number of lines and not the filename
 alias wcl='wc -l <'
