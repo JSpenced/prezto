@@ -143,6 +143,9 @@ alias preztoupdate='fasd_cd -d prezto && git fetch upstream && git rebase -Xours
 #     todo.sh ice_recur -o -f
 # }
 
+# Remove last line of file
+alias lastlineremove="sed -i '' -e '$ d' foo.txt"
+
 # File Type stats aliases
 alias filetypestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
 alias filestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
