@@ -283,4 +283,4 @@ if [ -f '${HOME}/Programs/google-cloud-sdk/path.zsh.inc' ]; then source '${HOME}
 if [ -f '${HOME}/Programs/google-cloud-sdk/completion.zsh.inc' ]; then source '${HOME}/Programs/google-cloud-sdk/completion.zsh.inc'; fi
 
 . ${HOME}/anaconda/etc/profile.d/conda.sh
-conda activate tf-ai
+conda activate fastai2
