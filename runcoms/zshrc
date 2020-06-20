@@ -288,3 +288,7 @@ if [ -f '${HOME}/Programs/google-cloud-sdk/completion.zsh.inc' ]; then source '$
 
 . ${HOME}/anaconda/etc/profile.d/conda.sh
 conda activate fastai2
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
