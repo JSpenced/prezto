@@ -242,6 +242,10 @@ alias mountvbox="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_o
 # Python aliases
 alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expand -t 8 \"\$0\" > \"\$T\" && mv \"\$T\" \"\$0\"' {} \;"
 
+# Convert pdf
+alias resizepdfzip="convert -compress Zip -density 150x150"
+alias resizepdfjpeg="convert -quality 90 -compress jpeg"
+
 # Try to setup to expand aliases
 expand-aliases() {
   unset 'functions[_expand-aliases]'
