@@ -29,6 +29,11 @@ bindkey "^I" expand-or-complete-with-dots
 setopt extended_glob
 setopt ksh_glob
 
+# Source private.
+if [[ -s "${HOME}/.zprivate" ]]; then
+  source "${HOME}/.zprivate"
+fi
+
 # system commands
 alias duh="du -d 1"
 alias du1="du -d 1"
