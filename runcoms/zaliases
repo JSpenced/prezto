@@ -125,3 +125,16 @@ alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expa
 # Convert pdf
 alias resizepdfzip="convert -compress Zip -density 150x150"
 alias resizepdfjpeg="convert -quality 90 -compress jpeg"
+
+
+# Linux system / graphical interface
+alias stopgdm="sudo systemctl stop gdm3.service"
+alias startgdm="sudo systemctl start gdm3.service"
+alias graphicalstop="sudo systemctl stop gdm3.service"
+alias graphicalstart="sudo systemctl start gdm3.service"
+alias systemstarttext="sudo systemctl set-default multi-user.target"
+alias systemstartgraphical="sudo systemctl set-default graphical.target"
+
+# Apt-get/snap install
+alias sai="sudo apt install"
+alias snai="sudo snap install"
