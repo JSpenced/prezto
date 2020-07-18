@@ -1,0 +1,127 @@
+# system commands
+alias duh="du -d 1"
+alias du1="du -d 1"
+alias due="du -L -d 1 -h 2>/dev/null"
+alias duea="du -L -h 2>/dev/null"
+alias dusa="du -L -h 2>/dev/null | gsort -h"
+alias dus="du -L -d 1 -h 2>/dev/null | gsort -h"
+alias dirdepth="find / -type d | sed 's|[^/]||g' | sort | tail -n1"
+
+# Even better: use the silver searcher (brew install the_silver_searcher)
+alias fs="ag -g"
+alias rs="ag"
+alias ripgrep="rg"
+# Default aliases for fasd already set but here for reference
+# alias fa='fasd -a'        # any
+# alias fs='fasd -si'       # show / search / select
+alias j='fasd_cd -d'
+alias jj='fasd_cd -d -i'
+alias fd='fasd -d'        # directory
+alias ff='fasd -f'        # file
+alias fsd='fasd -sid'     # Interactive directory selection
+alias fsf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+# unalias rm
+alias rmi='rm -i'
+alias rmr='rm -r'
+alias rmrf='rm -r -f'
+alias rmf='rm -r -f'
+alias rmd='rm -r'
+alias rmir='rm -i -r'
+# Used to unalias to use the ghostscript command /usr/local/bin/gs
+# unalias gs
+# alias gst='git stash'
+
+# Jupyter notebook alias and function
+alias nbstripjq_all="jq --indent 1 \
+	'(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+	| (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+	| .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+	| .cells[].metadata = {} \
+	'"
+function nbstrip_cwd {
+	for nbfile in *.ipynb; do
+	echo "$( nbstripjq_all $nbfile )" > $nbfile
+	done
+	unset nbfile
+}
+alias nbstripjq_metaonly="jq --indent 1 \
+	'(.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+	| .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+	| .cells[].metadata = {} \
+	'"
+function nbstrip_cwd_metaonly {
+	for nbfile in *.ipynb; do
+	echo "$( nbstripjq_metaonly $nbfile )" > $nbfile
+	done
+	unset nbfile
+}
+
+alias jupn='jupyter notebook'
+alias jn='jupyter notebook'
+alias jnio='jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000'
+
+# Remove last line of file
+alias lastlineremove="sed -i '' -e '$ d' foo.txt"
+
+# File Type stats aliases
+alias filetypestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
+alias filestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
+alias typestats="find . -type f | sed 's/.*\.//' | sort | uniq -c"
+
+# Only shows the number of lines and not the filename
+alias wcl='wc -l <'
+
+# Tmux aliases
+alias tj='j Down && conda deactivate && tmux'
+alias tmj='j Down && conda deactivate && tmux'
+alias ta='tmux a'
+alias tmd='tmux detach'
+
+# conda/pip aliases
+alias ccbf='conda config --set auto_activate_base false'
+alias cif='conda install -c conda-forge'
+alias cic='conda install -c conda-forge'
+alias cod='conda deactivate'
+alias ca='conda activate'
+alias coa='conda activate'
+alias coi='conda install'
+alias coc='conda create -n'
+alias cls='conda info --envs'
+alias pipi='pip install'
+alias pipe='pip install -e'
+
+# GIT aliases
+alias gcof='git checkout -f'
+alias gche='git cherry-pick'
+alias gwf='git status --ignore-submodules=${_git_status_ignore_submodules}'
+alias gwsf='git status --ignore-submodules=${_git_status_ignore_submodules}'
+alias gpristine='git reset --hard && git clean -df'
+alias gpris='git reset --hard && git clean -df'
+alias gdt='git difftool --ignore-space-at-eol --ignore-blank-lines -w -b'
+alias gau='git add -u'
+# Re-stage the currently staged files to get the most recent changes of those files
+alias gars='git add $(git diff --name-only --cached)'
+alias gas='git add $(git diff --name-only --cached)'
+
+# alias ls='ls -G -h'
+alias lh='ls -h -a'
+
+# Emacs related
+alias emq="emacs -q"
+alias emac="nohup emacs -q --no-desktop -l ${HOME}/Programs/scimax/init.el </dev/null >/dev/null 2>&1 &"
+alias emacf="nohup emacs -q --no-desktop -l ${HOME}/Programs/scimax/init.el"
+alias emacautosavefind="find . -iname '#*#' -type f -print"
+alias emacautosavedel="find . -iname '#*#' -type f -delete"
+alias emacsjmax="nohup emacs -q -l ${HOME}/Programs/scimax/init.el >/dev/null </dev/null >/dev/null 2>&1 &"
+alias emacdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
+alias emacbackprint="find ${HOME}/.emacs_path_backups -mtime +180 -type f -print"
+alias emacbackdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
+
+# Python aliases
+alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expand -t 8 \"\$0\" > \"\$T\" && mv \"\$T\" \"\$0\"' {} \;"
+
+# Convert pdf
+alias resizepdfzip="convert -compress Zip -density 150x150"
+alias resizepdfjpeg="convert -quality 90 -compress jpeg"
