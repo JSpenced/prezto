@@ -5,6 +5,21 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  unset zle_bracketed_paste
+  if whence -w precmd >/dev/null; then
+	  unfunction precmd
+  fi
+  if whence -w preexec >/dev/null; then
+	  unfunction preexec
+  fi
+  PS1='$ '
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
