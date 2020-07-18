@@ -11,3 +11,44 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
+  echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
+
+#function f() { find . -iname "*$1*" ${@:2} }
+#function r() { grep "$1" ${@:2} -R . }
+
+setopt extended_glob
+setopt ksh_glob
+
+# Source private.
+if [[ -s "${HOME}/.zprivate" ]]; then
+  source "${HOME}/.zprivate"
+fi
+
+if [[ -s "${HOME}/.zaliases" ]]; then
+  source "${HOME}/.zaliases"
+fi
+
+# Try to setup to expand aliases
+expand-aliases() {
+  unset 'functions[_expand-aliases]'
+  functions[_expand-aliases]=$BUFFER
+  (($+functions[_expand-aliases])) &&
+	BUFFER=${functions[_expand-aliases]#$'\t'} &&
+	CURSOR=$#BUFFER
+}
+zle -N expand-aliases
+bindkey '\e^E' expand-aliases
+
+# Treat these characters as part of a word.
+WORDCHARS='*?[]~&;!#$%^(){}<>'
+
+# Setup basic paths
+export PATH=${HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${HOME}/lib:$LD_LIBRARY_PATH
