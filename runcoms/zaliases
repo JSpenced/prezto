@@ -125,3 +125,83 @@ alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expa
 # Convert pdf
 alias resizepdfzip="convert -compress Zip -density 150x150"
 alias resizepdfjpeg="convert -quality 90 -compress jpeg"
+
+# hub has all the features of git and more to view issues and submit PRs
+alias git="hub"
+
+alias su="subl"
+alias sn="subl -n"
+alias snw="subl -n -w"
+alias sb="subl -n -b"
+alias snb="subl -n -b"
+
+# Other aliases
+alias opar='open -a "Adobe Acrobat Reader DC"'
+alias unm='diskutil unmountDisk /dev/disk2s1'
+alias unmo='diskutil unmountDisk /dev/disk2s1'
+alias unmount='diskutil unmountDisk'
+alias unmountd='diskutil unmountDisk /dev/disk2s1'
+alias kql='killall qlmanage'
+alias netoff='networksetup -setairportpower en0 off'
+alias neton='networksetup -setairportpower en0 on'
+alias netoffon='networksetup -setairportpower en0 off; networksetup -setairportpower en0 on'
+alias noo='networksetup -setairportpower en0 off; networksetup -setairportpower en0 on'
+alias adp='adb push'
+alias td='todo.sh'
+alias tdp='export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH; todo.sh ice_recur -o'
+alias tdr='export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH; todo.sh ice_recur -o'
+alias tdrf='export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH; todo.sh ice_recur -o -f'
+alias tdi='todo.sh ice_recur -o'
+alias tdpf='export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH; todo.sh ice_recur -o -f'
+alias tdf='todo.sh ice_recur -o -f'
+alias tdice='todo.sh ice_recur'
+alias sl='pmset sleepnow'
+alias histr='fc -R'
+alias histread='fc -R'
+alias fcr='fc -R'
+alias fcw='fc -W'
+alias histw='fc -W'
+alias histwrite='fc -W'
+# alias sle='pmset sleepnow'
+alias pms='pmset sleepnow'
+alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias preztoupdate='fasd_cd -d prezto && git fetch upstream && git rebase -Xours upstream/master && git checkout --ours zshconfig.sh && git add zshconfig.sh && git rebase --continue'
+
+# How to write multiline commands if don't want to use alias
+# tdicerecurtest () {
+#     export PATH=/usr/local/opt/ruby/bin:/usr/local/opt/openssl/bin:$PATH
+#     todo.sh ice_recur -o -f
+# }
+
+# Copy video files aliases
+alias cpvidfiles='mkdir -p ${HOME}/Movies/My_vids/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.webm -o -iname \*.3gp -o -iname \*.ogg -o -iname \*.wmv \) -exec cp {} ${HOME}/Movies/My_vids/Videos \;'
+alias cpvidfilesdown='mkdir -p ${HOME}/Downloads/Videos && find . -type f \( -iname \*.avi -o -iname \*.mov -o -iname \*.mp4 -o -iname \*.mts -o -iname \*.mkv -o -iname \*.flv -o -iname \*.webm -o -iname \*.3gp -o -iname \*.ogg -o -iname \*.wmv \) -exec cp {} ${HOME}/Downloads/Videos \;'
+# Can also youse dot_clean $PATH to merge them
+alias dot_underscore_del='find . -type f -name "._*" -delete'
+alias dot_clean_all='dot_clean -n .'
+
+# Trash aliases
+alias trafe='trash -ey'
+alias trae='trash -e'
+alias tra='trash'
+
+# jekyll aliases
+alias jekylls='bundle exec jekyll serve'
+alias jekyllproduction='JEKYLL_ENV=production bundle exec jekyll serve'
+
+# Brew aliases
+alias brewski='conda deactivate; brew update && brew upgrade && brew cleanup; brew doctor'
+
+# RUN Programs
+alias opf="open -a Finder"
+
+# Emacs related
+alias em="open -a Emacs"
+alias emacsrelinkdesk="cp ~/Programs/scimax/user/.emacs.desktop ~/Dropbox/Programs/emacs/user/.emacs.desktop && ln -sf ~/Dropbox/Programs/emacs/user/.emacs.desktop ~/Programs/scimax/user/.emacs.desktop"
+alias emacsrmlock="rm ~/Programs/scimax/user/.emacs.desktop.lock"
+alias emacsrmdesk="rm ~/Programs/scimax/user/.emacs.desktop || rm ~/Dropbox/Programs/emacs/user/.emacs.desktop"
+
+# Mount hard drive (FUSE and unmount VBox)
+alias fuse="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse"
+alias mountntfs="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse && sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/ntfs -ovolname='ntfs'"
+alias mountvbox="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh vbox"
