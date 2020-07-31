@@ -205,3 +205,5 @@ alias emacsrmdesk="rm ~/Programs/scimax/user/.emacs.desktop || rm ~/Dropbox/Prog
 alias fuse="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse"
 alias mountntfs="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh fuse && sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/ntfs -ovolname='ntfs'"
 alias mountvbox="sudo sh ${HOME}/Dropbox/Programs/system-scripts/turn_off_vbox_or_fuse.sh vbox"
+
+alias awscr="aws --profile crayon-site"
