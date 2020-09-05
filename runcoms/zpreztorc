@@ -221,7 +221,7 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Set the default session name:
-zstyle ':prezto:module:tmux:session' name 'DEFAULT'
+zstyle ':prezto:module:tmux:session' name 'DEF'
 
 #
 # Utility
@@ -246,7 +246,7 @@ zstyle ':prezto:module:fzf' completion 'yes'
 zstyle ':prezto:module:fzf' height '70%'
 
 # Open fzf results in a tmux pane (if using tmux)
-zstyle ':prezto:module:fzf' tmux 'no'
+zstyle ':prezto:module:fzf' tmux 'yes'
 
 # Set colorscheme
 # A list of available colorschemes is available in color.zsh
