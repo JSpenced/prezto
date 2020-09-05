@@ -58,32 +58,26 @@ export LD_LIBRARY_PATH=${HOME}/lib:$LD_LIBRARY_PATH
 export SUBLIME=subl
 export EDITOR=$SUBLIME' -w'
 export VISUAL=$EDITOR
-# export NVM_DIR="$HOME/.nvm"
-# . "/usr/local/opt/nvm/nvm.sh"
 
-# export PATH=${HOME}/anaconda/bin:${HOME}/bin:/usr/local/bin:/usr/local/share/python:$PATH:${HOME}/Dropbox/Programs/system-scripts
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/Dropbox/Programs/system-scripts
-# export PYTHONPATH=$PYTHONPATH:$HOME/Google-dr/Research/Model
-# export PATH=$HOME/bin:/usr/local/bin:/usr/local/share/python:$PATH:$HOME/Dropbox/Programs/system-scripts
-source "${HOME}/.zshrc_hidden"
+export PATH=$PATH:$HOME/Dropbox/Programs/system-scripts
 
-# export PYTHONPATH=/usr/local/lib/python2.7/site-packages:/usr/local/lib/python3.5/site-packages:$PYTHONPATH
-# To get autojump working (replaced by fasd (brew install and added to plugins))
-# [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# First check if iterm terminal and run shell integration if so
+${HOME}/.iterm2/it2check && test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-eval "$(rbenv init -)"
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '${HOME}/Programs/google-cloud-sdk/path.zsh.inc' ]; then source '${HOME}/Programs/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '${HOME}/Programs/google-cloud-sdk/completion.zsh.inc' ]; then source '${HOME}/Programs/google-cloud-sdk/completion.zsh.inc'; fi
-
-. ${HOME}/anaconda/etc/profile.d/conda.sh
-conda activate fastai2
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/spence/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/spence/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/spence/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/spence/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
