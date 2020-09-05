@@ -64,6 +64,13 @@ bindkey '\e^E' expand-aliases
 # Treat these characters as part of a word.
 WORDCHARS='*?[]~&;!#$%^(){}<>'
 
+# Setup fzf command
+# Don't need the first line when using fzf module
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_COMPLETION_TRIGGER='~~'
+
 # Setup basic paths
 export PATH=${HOME}/bin:$PATH
 export LD_LIBRARY_PATH=${HOME}/lib:$LD_LIBRARY_PATH
