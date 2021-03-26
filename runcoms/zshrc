@@ -75,17 +75,21 @@ ${HOME}/.iterm2/it2check && test -e "${HOME}/.iterm2_shell_integration.zsh" && s
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+source <(kubectl completion zsh)
+source /Users/spence/.config/broot/launcher/bash/br
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/spence/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+	eval "$__conda_setup"
 else
-    if [ -f "/Users/spence/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/spence/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/spence/anaconda3/bin:$PATH"
-    fi
+	if [ -f "/Users/spence/anaconda3/etc/profile.d/conda.sh" ]; then
+		. "/Users/spence/anaconda3/etc/profile.d/conda.sh"
+	else
+		export PATH="/Users/spence/anaconda3/bin:$PATH"
+	fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
