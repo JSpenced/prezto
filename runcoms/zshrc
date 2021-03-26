@@ -63,7 +63,8 @@ export LD_LIBRARY_PATH=${HOME}/lib:$LD_LIBRARY_PATH
 # Mac config
 
 export SUBLIME=subl
-export EDITOR=$SUBLIME' -w'
+# export EDITOR=$SUBLIME' -w'
+export EDITOR='emacsclient --create-frame --alternate-editor="subl -w"'
 export VISUAL=$EDITOR
 
 export PATH=$PATH:$HOME/Dropbox/Programs/system-scripts
