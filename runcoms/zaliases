@@ -104,6 +104,9 @@ alias gau='git add -u'
 # Re-stage the currently staged files to get the most recent changes of those files
 alias gars='git add $(git diff --name-only --cached)'
 alias gas='git add $(git diff --name-only --cached)'
+# alias gitcleanlocal="git checkout master && git fetch -p && git branch -d '$(git branch --merged | grep master -v)'"
+alias gbpurge="git branch --merged | grep -v '\*' | grep -v 'master' | grep -v 'production' | grep -v 'uat' | xargs -n 1 git branch -d"
+alias gbpurge1="git checkout master && git fetch -p && git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d"
 
 # alias ls='ls -G -h'
 alias lh='ls -h -a'
