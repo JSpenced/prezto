@@ -84,6 +84,9 @@ fi
 if [[ -s "${HOME}/.config/broot/launcher/bash/br" ]]; then
   source "${HOME}/.config/broot/launcher/bash/br"
 fi
+if [[ -s '/usr/local/bin/aws_completer' ]]; then
+  complete -C '/usr/local/bin/aws_completer' aws
+fi
 source <(kubectl completion zsh)
 
 
