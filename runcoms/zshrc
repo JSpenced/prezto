@@ -92,8 +92,6 @@ if [[ -s '/usr/local/bin/aws_completer' ]]; then
 fi
 source <(kubectl completion zsh)
 
-
-
 if [[ -s "${HOME}/anaconda3/bin/conda" ]]; then
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
@@ -111,3 +109,6 @@ if [[ -s "${HOME}/anaconda3/bin/conda" ]]; then
   # <<< conda initialize <<<
 fi
 
+if [[ -s "${HOME}/.zlocal" ]]; then
+  source "${HOME}/.zlocal"
+fi
