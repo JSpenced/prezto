@@ -1,7 +1,9 @@
 #!/bin/zsh
 
+# Necessary to use complete command anywhere
+autoload -U +X bashcompinit && bashcompinit
+
 if [[ -s "/usr/local/bin/terraform" ]]; then
-  autoload -U +X bashcompinit && bashcompinit
   complete -o nospace -C /usr/local/bin/terraform terraform
 fi
 
