@@ -20,9 +20,15 @@ version is **4.3.11**.
 02. Clone the repository:
 
     ```console
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    ```
-
+    git clone --recurse-submodules -j8 https://github.com/JspenceD/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    ```  
+	
+    or use the following for ssh:  
+	
+    ```console
+    git clone --recurse-submodules -j8 git@github.com:JSpenced/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    ```  
+	
     <details>
       <summary><em>Optional: Installing in <code>$XDG_CONFIG_HOME</code></em></summary>
 
