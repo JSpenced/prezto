@@ -74,4 +74,14 @@ fi
 alias histread='fc -R'
 alias histwrite='fc -W'
 
+# Linux system / graphical interface
+alias graphicalstop="sudo systemctl stop gdm3.service"
+alias graphicalstart="sudo systemctl start gdm3.service"
+alias systemstarttext="sudo systemctl set-default multi-user.target"
+alias systemstartgraphical="sudo systemctl set-default graphical.target"
+
+# Apt-get/snap install
+alias sai="sudo apt install"
+alias snai="sudo snap install"
+
 # END
