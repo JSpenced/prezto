@@ -41,6 +41,7 @@ setopt ksh_glob
 
 # Setup local bin path
 export PATH=${HOME}/bin:$PATH
+export PATH=$PATH:${HOME}/Dropbox/Programs/system-scripts
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
