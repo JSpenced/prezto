@@ -12,6 +12,8 @@ fi
 
 # Customize to your needs...
 
+# Rewrite and setup various key bindings
+
 expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
   echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
   zle expand-or-complete
@@ -20,5 +22,39 @@ expand-or-complete-with-dots() {      # This bunch of code displays red dots whe
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
+# Try to setup to expand aliases
+expand-aliases() {
+  unset 'functions[_expand-aliases]'
+  functions[_expand-aliases]=$BUFFER
+  (($+functions[_expand-aliases])) &&
+	BUFFER=${functions[_expand-aliases]#$'\t'} &&
+	CURSOR=$#BUFFER
+}
+zle -N expand-aliases
+bindkey '\e^E' expand-aliases
+
+# Treat these characters as part of a word. Removes '-_' from the default.
+WORDCHARS='*?[]~&;!#$%^(){}<>'
+
+setopt extended_glob
+setopt ksh_glob
+
+# Setup local bin path
+export PATH=${HOME}/bin:$PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Source private.
+if [[ -s "${HOME}/.zprivate" ]]; then
+  source "${HOME}/.zprivate"
+fi
+
+if [[ -s "${HOME}/.zaliases" ]]; then
+  source "${HOME}/.zaliases"
+fi
+
+if [[ -s "${HOME}/.zlocal" ]]; then
+  source "${HOME}/.zlocal"
+fi
 
 # END
