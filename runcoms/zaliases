@@ -1,5 +1,41 @@
 #!/bin/zsh
 
+# system commands
+alias du1="du -d 1"
+case "$OSTYPE" in
+  darwin*)
+    alias dus="du -L -d 1 -h 2>/dev/null | gsort -h"
+  ;;
+  linux*)
+  alias dus="du -L -d 1 -h 2>/dev/null | sort -h"
+  ;;
+esac
 
+# Even better: use the silver searcher or ripgrep on linux
+alias ripgrep="rg"
 
+# fasd aliases for fast directory movement (jj asks for any directory matching a fuzzy search)
+alias j='fasd_cd -d'
+alias jj='fasd_cd -d -i'
+
+# Force remove and do so for directories too
+alias rmf='rm -r -f'
+
+# Remove last line of file
+alias lastlineremove="sed -i '' -e '$ d' foo.txt"
+
+# Tmux aliases
+alias ta='tmux a'
+alias tmd='tmux detach'
+
+# Pip install aliases
+alias pipi='pip install'
+alias pipe='pip install -e'
+
+# Python aliases
+alias pytabtospace="find . -name '*.py' -type f -exec bash -c 'T=$(mktemp); expand -t 8 \"\$0\" > \"\$T\" && mv \"\$T\" \"\$0\"' {} \;"
+
+# Kube Aliases
+alias k='kubectl'
+  
 # END
