@@ -77,7 +77,21 @@ version is **4.3.11**.
     chsh -s /bin/zsh
     ```
 
-05. Open a new Zsh terminal window or tab.
+05. *Optional*: Fzf module included so adds `ctrl+r`, `ctrl+t`, and `alt+c` bindings for reverse search, find files, and search directories, respectively:
+
+    On mac,  
+	```console
+    brew install fzf
+    ```  
+	
+    or on linux do this to install the binary:  
+	
+    ```console
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install --bin
+    ```  
+
+06. Open a new Zsh terminal window or tab.
 
 ### Troubleshooting
 
