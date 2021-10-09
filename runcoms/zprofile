@@ -5,6 +5,15 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Makes it so emacs tramp mode doesn't load any of this config
+if [[ $TERM == tramp ]]; then
+		unset RPROMPT
+		unset RPS1
+		PS1="$ "
+		unsetopt zle
+		unsetopt rcs  # Inhibit loading of further config files
+fi
+
 #
 # Browser
 #
