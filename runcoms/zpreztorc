@@ -41,6 +41,8 @@ zstyle ':prezto:load' pmodule \
   'fzf' \
   'git' \
   'tmux' \
+  'homebrew' \
+  'osx' \
   'completion' \
   'fasd' \
   'syntax-highlighting' \
