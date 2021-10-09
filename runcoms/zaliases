@@ -46,5 +46,32 @@ if type "kubectl" > /dev/null; then
   alias k='kubectl'
 fi
 
+# Only shows the number of lines and not the filename
+alias wcl='wc -l <'
+
+# Emacs related
+if type "emacs" > /dev/null; then
+  alias emac="nohup emacs -q --no-desktop -l ${HOME}/Programs/scimax/init.el </dev/null >/dev/null 2>&1 &"
+  alias emacautosavefind="find . -iname '#*#' -type f -print"
+  alias emacautosavedel="find . -iname '#*#' -type f -delete"
+  alias emacdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
+  alias emacbackprint="find ${HOME}/.emacs_path_backups -mtime +180 -type f -print"
+  alias emacbackdel="find ${HOME}/.emacs_path_backups -mtime +180 -type f -delete"
+fi
+
+# hub has all the features of git and more for github (alias git=hub if exists)
+if type "hub" > /dev/null; then
+  eval "$(hub alias -s)"
+fi
+
+# Convert pdf
+if type "convert" > /dev/null; then
+  alias resizepdfzip="convert -compress Zip -density 150x150"
+  alias resizepdfjpeg="convert -quality 90 -compress jpeg"
+fi
+
+# History commands
+alias histread='fc -R'
+alias histwrite='fc -W'
 
 # END
