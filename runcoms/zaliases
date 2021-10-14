@@ -75,3 +75,10 @@ alias histread='fc -R'
 alias histwrite='fc -W'
 
 # END
+
+# Sleep now
+alias pms='pmset sleepnow'
+
+# open from cli in apps
+alias opf="open -a Finder"
+alias em="open -a Emacs"
