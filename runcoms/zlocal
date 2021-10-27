@@ -3,6 +3,15 @@
 # Necessary to use complete command anywhere
 autoload -U +X bashcompinit && bashcompinit
 
+# setup iterm2 shell integrations if iterm terminal
+if test -e ${HOME}/.iterm2/it2check && ${HOME}/.iterm2/it2check; then
+  # This works if using tmux with -CC, but doesn't work with normal tmux so only set on mac
+  if [[ "$OSTYPE" == darwin* ]]; then
+	export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+  fi
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+
 if [[ -s "/usr/local/bin/terraform" ]]; then
   complete -o nospace -C /usr/local/bin/terraform terraform
 fi
