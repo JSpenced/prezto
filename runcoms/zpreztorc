@@ -33,15 +33,16 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
+  'archive' \
   'history' \
   'directory' \
   'spectrum' \
   'utility' \
-  'completion' \
   'fasd' \
   'fzf' \
   'git' \
   'tmux' \
+  'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
