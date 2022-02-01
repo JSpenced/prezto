@@ -38,11 +38,11 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'fasd' \
   'fzf' \
   'git' \
   'tmux' \
   'completion' \
+  'fasd' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
