@@ -57,8 +57,11 @@ if [[ -s "${HOME}/anaconda3/bin/conda" ]]; then
   # <<< conda initialize <<<
 fi
 
-if [[ -d $PYENV_ROOT ]]
-then
+if type "direnv" > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
+if [[ -d $PYENV_ROOT ]]; then
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 fi
