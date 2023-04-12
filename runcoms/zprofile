@@ -76,6 +76,16 @@ then
 fi
 
 #
+# Rust setup
+#
+
+export RUST_ROOT="$HOME/.cargo"
+if [[ -d $RUST_ROOT ]]
+then
+	source "$HOME/.cargo/env"
+fi
+
+#
 # Less
 #
 
