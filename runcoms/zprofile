@@ -79,9 +79,9 @@ fi
 # Rust setup
 #
 
-export RUST_ROOT="$HOME/.cargo"
-if [[ -d $RUST_ROOT ]]
+if [[ -f "$HOME/.cargo/env" ]]
 then
+	export RUST_ROOT="$HOME/.cargo"
 	source "$HOME/.cargo/env"
 fi
 
