@@ -61,6 +61,11 @@ if type "direnv" > /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
+# location where uv is typically installed
+if [[ -d $HOME/.local/bin ]]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
 if [[ -d $PYENV_ROOT ]]; then
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
