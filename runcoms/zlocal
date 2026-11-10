@@ -66,6 +66,12 @@ if [[ -d $HOME/.local/bin ]]; then
 	export PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [[ -d $HOME/.docker/completions ]]; then
+	fpath=($HOME/.docker/completions $fpath)
+	autoload -Uz compinit
+	(( ${+_comps[docker]} )) || compinit
+fi
+
 if [[ -d $PYENV_ROOT ]]; then
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
