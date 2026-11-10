@@ -85,6 +85,10 @@ then
 	source "$HOME/.cargo/env"
 fi
 
+if [[ -d "$HOME/.docker/bin" ]]; then
+   export PATH="$PATH:$HOME/.docker/bin"
+fi
+
 #
 # Less
 #
